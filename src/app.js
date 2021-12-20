@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 
 const daprPort = process.env.DAPR_HTTP_PORT || 3500;
-const stateStoreName = `statestore`;
+const stateStoreName = `statestoremongodb`;
 const stateUrl = `http://localhost:${daprPort}/v1.0/state/${stateStoreName}`;
 const port = 3000;
 
@@ -38,7 +38,7 @@ app.post('/neworder', (req, res) => {
     console.log("Got a new order! Order ID: " + orderId);
 
     const state = [{
-        key: "order",
+        key: `order_${orderId}`,
         value: data
     }];
 
