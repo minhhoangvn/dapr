@@ -23,6 +23,7 @@
     "faker": "^5.5.3",
     "isomorphic-fetch": "^3.0.0",
     "sockjs": "^0.3.24",
+    "stomp-protocol": "^0.4.7",
     "websocket-multiplex": "^0.1.0"
   }
 }
