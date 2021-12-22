@@ -24,6 +24,8 @@
     "isomorphic-fetch": "^3.0.0",
     "sockjs": "^0.3.24",
     "stomp-protocol": "^0.4.7",
-    "websocket-multiplex": "^0.1.0"
+    "websocket": "^1.0.34",
+    "websocket-multiplex": "^0.1.0",
+    "ws": "^8.4.0"
   }
 }

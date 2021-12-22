@@ -1,8 +1,11 @@
-const { StompHeaders, StompError, StompServerCommandListener, createStompClientSession } = require('stomp-protocol');
+const {  StompHeaders, StompError, StompClientCommandListener, createStompServerSession, StompServerSessionLayer } = require('stomp-protocol');
+
 const { Socket, createServer } = require('net');
+
 
 const testServer = (socket) => {
     // 1) create a listener for incoming raw TCP connections.
+
 
     const listener = {
         // 2) define a listener for client-sent frames.
@@ -10,9 +13,9 @@ const testServer = (socket) => {
         connect(headers) {
             console.log('Connect!', headers);
             if (headers && headers.login === 'user' && headers.passcode === 'pass') {
-                server.connected({ version: '1.2', server: 'MyServer/1.8.2' }).catch(console.error);
+                sessionLayerServer.connected({ version: '1.2', server: 'MyServer/1.8.2' }).catch(console.error);
             } else {
-                server.error({ message: 'Invalid login data' }, 'Invalid login data').catch(console.error);
+                sessionLayerServer.error({ message: 'Invalid login data' }, 'Invalid login data').catch(console.error);
             }
         },
         send(headers, body) {
@@ -50,10 +53,11 @@ const testServer = (socket) => {
         }
     };
 
-    const server = createStompServerSession(socket, listener);  // 3) Start a STOMP Session over the TCP socket.
+    const sessionLayerServer = createStompServerSession(socket, listener);  // 3) Start a STOMP Session over the TCP socket.
+
 }
 
-const server = createServer(testServer); // 4) Create a TCP server
-server.listen(9999, 'localhost', () => {
+const tcpServer = createServer(testServer); // 4) Create a TCP server
+tcpServer.listen(9999, 'localhost', () => {
     console.log(' [*] Listening on 0.0.0.0:9999');
 }); // 5) Listen for incoming connections
