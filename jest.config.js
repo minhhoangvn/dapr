@@ -16,5 +16,5 @@ module.exports = {
   maxWorkers: 10,
   detectOpenHandles: true,
   detectLeaks: true,
-  testTimeout: 15000,
+  testTimeout: 30000,
 };

@@ -27,6 +27,7 @@ export class Doctor {
             console.log(`⚡️[server]: Server is stopping at https://localhost:${this.expressServerPort}`);
         })
     }
+
 }
 
 export {
