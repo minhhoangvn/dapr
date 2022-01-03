@@ -103,3 +103,8 @@ dist
 # TernJS port file
 .tern-port
 k6
+
+node_modules/
+lerna-debug.log
+npm-debug.log
+packages/*/lib

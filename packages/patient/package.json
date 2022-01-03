@@ -1,0 +1,26 @@
+{
+  "name": "@minhhoang/patient",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "minhhn3 <minhhn3@vng.com.vn>",
+  "homepage": "https://github.com/minhhoangvn/dapr/tree/main/packages/patient#readme",
+  "license": "ISC",
+  "main": "lib/patient.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minhhoangvn/dapr.git"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "test": "jest"
+  },
+  "bugs": {
+    "url": "https://github.com/minhhoangvn/dapr/issues"
+  }
+}
