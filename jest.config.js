@@ -13,5 +13,8 @@ module.exports = {
   ],
   verbose: true,
   maxConcurrency: 10,
-  maxWorkers: 10
+  maxWorkers: 10,
+  detectOpenHandles: true,
+  detectLeaks: true,
+  testTimeout: 15000,
 };

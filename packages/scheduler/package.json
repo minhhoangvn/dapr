@@ -22,5 +22,8 @@
   },
   "bugs": {
     "url": "https://github.com/minhhoangvn/dapr/issues"
+  },
+  "devDependencies": {
+    "ts-node": "^10.4.0"
   }
 }
