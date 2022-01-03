@@ -12,11 +12,13 @@ export class Doctor {
 
     public startServer(): Server {
         this.expressServer = express();
-        this.expressServer.get('/', (req, res) => res.send('Express + TypeScript Server'));
+        this.expressServer.get('/ping', (req, res) => res.status(200).send(`${this.expressServerPort}`));
         this.expressApp = this.expressServer.listen(this.expressServerPort, () => {
             console.log(`⚡️[server]: Server is running at https://localhost:${this.expressServerPort}`);
             this.isRun = true;
         })
+        this.expressApp.keepAliveTimeout = 100;
+        this.expressApp.timeout = 100;
         return this.expressApp;
     }
 
