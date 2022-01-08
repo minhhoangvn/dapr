@@ -37,9 +37,36 @@ describe("test svc state", () => {
 
         // Assert
         const response = await axiosInstance.get("http://localhost:8182/ping")
-        console.log(response);
         expect(parseInt(response.data)).toBe(8182)
         doctorSvc.stopServer();
         await new Promise((r) => setTimeout(r, 100));
     })
+
+    it("should allow client can define express option config", async () => {
+        // Arrange 
+        const axiosInstance = axios.default.create({
+            timeout: 1000,
+            httpAgent: new Agent({ keepAlive: true, keepAliveMsecs: 3000, maxSockets: 2 }),
+
+        });
+
+        const options = {
+            keepAliveTimeout: 1000,
+            timeout: 1000
+        }
+        const doctorSvc = new DoctorService(8183, options);
+
+         // Action
+         doctorSvc.startServer();
+         await new Promise((r) => setTimeout(r, 100));
+ 
+         // Assert
+         const response = await axiosInstance.get("http://localhost:8183/ping")
+         expect(response.headers['connection']).toEqual("keep-alive");
+         expect(response.headers['keep-alive']).toEqual("timeout=1");
+         expect(parseInt(response.data)).toBe(8183)
+         doctorSvc.stopServer();
+         await new Promise((r) => setTimeout(r, 1500));
+    }
+    )
 });

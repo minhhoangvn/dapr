@@ -1,13 +1,16 @@
 import * as express from 'express';
 import { Server } from 'http';
-
+import { ExpressOptions } from './types/ExpressOption'
 export class Doctor {
+    public isRun: boolean;
     private expressServerPort: number;
     private expressServer: express.Application;
-    public isRun: boolean;
     private expressApp: Server;
-    constructor(port: number = 8881) {
+    private expressOptions: ExpressOptions;
+
+    constructor(port: number = 8881, options: ExpressOptions = { keepAliveTimeout: 100, timeout: 100 }) {
         this.expressServerPort = port;
+        this.expressOptions = options;
     }
 
     public startServer(): Server {
@@ -17,8 +20,8 @@ export class Doctor {
             console.log(`⚡️[server]: Server is running at https://localhost:${this.expressServerPort}`);
             this.isRun = true;
         })
-        this.expressApp.keepAliveTimeout = 100;
-        this.expressApp.timeout = 100;
+        this.expressApp.keepAliveTimeout = this.expressOptions.keepAliveTimeout;
+        this.expressApp.timeout = this.expressOptions.timeout;
         return this.expressApp;
     }
 
