@@ -4,6 +4,7 @@
   "description": "Sample project for learning DAPR",
   "main": "index.js",
   "scripts": {
+    "build": "lerna run build",
     "test": "jest"
   },
   "repository": {

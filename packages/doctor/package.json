@@ -25,5 +25,8 @@
   },
   "devDependencies": {
     "ts-node": "^10.4.0"
+  },
+  "dependencies": {
+    "@minhhoang/base": "^0.0.0"
   }
 }

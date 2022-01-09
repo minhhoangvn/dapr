@@ -1,6 +1,6 @@
 import * as express from 'express';
 import { Server } from 'http';
-import { ExpressOptions } from './types/ExpressOption'
+import { ExpressOptions } from '@minhhoang/base';
 export class Doctor {
     public isRun: boolean;
     private expressServerPort: number;
