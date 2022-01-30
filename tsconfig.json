@@ -1,13 +1,16 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "moduleResolution": "node",
     "declaration": true,
     "noImplicitAny": false,
     "removeComments": true,
     "noLib": false,
+    "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "esModuleInterop": false,
+    "resolveJsonModule": true,
     "target": "es6",
     "sourceMap": true,
     "lib": [
@@ -18,5 +21,5 @@
     "node_modules",
     "**/*.spec.ts",
     "examples"
-  ]
+  ],
 }

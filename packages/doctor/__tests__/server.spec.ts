@@ -1,8 +1,8 @@
-import { assert } from 'console';
 import { Agent } from 'http'
 import * as axios from 'axios';
 
-import { DoctorService } from '../src/index';
+import { DoctorService } from '../src/server';
+
 describe("test svc state", () => {
     it("should export svc object", () => {
         expect(DoctorService).not.toBeNull()
