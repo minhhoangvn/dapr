@@ -16,6 +16,6 @@ module.exports = {
     `<rootDir>/packages/${packageName}`,
   ],
   moduleNameMapper: {
-    "^@/(.*)": "<rootDir>/packages/doctor/src/$1",
+    "@/(.*)": "<rootDir>/packages/doctor/src/$1",
   },
 };
