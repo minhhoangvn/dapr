@@ -8,7 +8,9 @@
     "outDir": "./lib",
     "baseUrl": "src",
     "paths": {
-      "@/*": ["*"]
+      "@/*": [
+        "*"
+      ]
     }
   },
   "include": [

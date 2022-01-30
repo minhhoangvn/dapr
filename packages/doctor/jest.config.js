@@ -15,6 +15,7 @@ module.exports = {
   roots: [
     `<rootDir>/packages/${packageName}`,
   ],
+  moduleDirectories: ['node_modules', './src'],
   moduleNameMapper: {
     "@/(.*)": "<rootDir>/packages/doctor/src/$1",
   },
